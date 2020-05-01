@@ -27,7 +27,7 @@ import org.eclipse.lyo.oslc4j.core.model.AbstractResource;
 /**
  * Compact
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaJerseyServerCodegen", date = "2020-05-01T14:12:36.744-05:00[America/Mexico_City]")public class Compact   {
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaJerseyServerCodegen", date = "2020-05-01T14:16:00.487-05:00[America/Mexico_City]")public class Compact   {
   @JsonProperty("about")
   private String about = null;
 

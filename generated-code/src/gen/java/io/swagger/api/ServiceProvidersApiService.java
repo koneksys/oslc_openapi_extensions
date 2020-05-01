@@ -16,7 +16,7 @@ import java.io.InputStream;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.SecurityContext;
 import javax.validation.constraints.*;
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaJerseyServerCodegen", date = "2020-05-01T14:12:36.744-05:00[America/Mexico_City]")public abstract class ServiceProvidersApiService {
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaJerseyServerCodegen", date = "2020-05-01T14:16:00.487-05:00[America/Mexico_City]")public abstract class ServiceProvidersApiService {
     public abstract Response createTestScript(String serviceProviderId,TestScript body,SecurityContext securityContext) throws NotFoundException;
     public abstract Response getTestScript(String serviceProviderId,String testScriptId,SecurityContext securityContext) throws NotFoundException;
     public abstract Response getTestScriptAsHtmlLargePreview(String serviceProviderId,String testScriptId,SecurityContext securityContext) throws NotFoundException;
