@@ -1,1 +1,1 @@
-# OSLC Extensions for OpenAPI
+# OSLC Extensions for OpenAPI
