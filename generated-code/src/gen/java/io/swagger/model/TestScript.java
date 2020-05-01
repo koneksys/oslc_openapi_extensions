@@ -25,7 +25,7 @@ import org.eclipse.lyo.oslc4j.core.model.AbstractResource;
  */
 @OslcResourceShape(title = "Test Script Resource Shape", describes = "http://open-services.net/ns/qm#TestScript")
 @OslcNamespace("http://open-services.net/ns/qm#")
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaJerseyServerCodegen", date = "2020-05-01T13:27:13.952-05:00[America/Mexico_City]")public class TestScript  extends AbstractResource {
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaJerseyServerCodegen", date = "2020-05-01T14:12:36.744-05:00[America/Mexico_City]")public class TestScript  extends AbstractResource {
   @JsonProperty("title")
   private String title = null;
 
