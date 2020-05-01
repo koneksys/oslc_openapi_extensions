@@ -1,4 +1,4 @@
-package io.swagger.api;
+package {{apiPackage}};
 
 import java.util.HashSet;
 import java.util.Set;
@@ -20,7 +20,7 @@ import org.eclipse.lyo.oslc4j.provider.jena.JenaProvidersRegistry;
 
 @Configuration
 @SpringBootApplication
-@ComponentScan(basePackages = { "io.swagger.model", "io.swagger.api" })
+@ComponentScan(basePackages = { "{{modelPackage}}", "{{apiPackage}}" })
 public class Bootstrap extends ResourceConfig implements CommandLineRunner {
 
     @Override
@@ -42,13 +42,13 @@ public class Bootstrap extends ResourceConfig implements CommandLineRunner {
     }
 
     private void registerEndpoints() {
-        packages("io.swagger.api");
+        packages("{{apiPackage}}");
     }
 
     private void configureSwagger() {
         OpenApiResource openApiResource = new OpenApiResource();
         Set<String> apiPackage = new HashSet<>();
-        apiPackage.add("io.swagger.api");
+        apiPackage.add("{{apiPackage}}");
         openApiResource.resourcePackages(apiPackage);
         register(openApiResource);
     }
