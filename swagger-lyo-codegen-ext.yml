@@ -1,0 +1,283 @@
+---
+swagger: "2.0"
+info:
+  version: "1.0.0"
+  title: ""
+host: "localhost:8082"
+basePath: "/adaptor-testing/services"
+tags:
+- name: "OSLC Service for {TestScript}"
+schemes:
+- "http"
+paths:
+  /resourceShapes/{resourceType}:
+    get:
+      x-OSLC-ResourceShapeEndpoint: true
+      produces:
+        - "application/rdf+xml"
+        - "application/xml"
+        - "application/json"
+        - "text/turtle"
+        - "text/html"
+      parameters:
+        - name: "resourceType"
+          in: "path"
+          required: true
+          type: "string"
+      responses:
+        "200":
+          description: "successful operation"
+  /provider/{serviceProviderId}:
+    get:
+      produces:
+        - "application/rdf+xml"
+        - "application/xml"
+        - "application/json"
+        - "text/turtle"
+        - "text/html"
+      parameters:
+        - name: "serviceProviderId"
+          in: "path"
+          required: true
+          type: "string"
+      responses:
+        "200":
+          description: "successful operation"
+  /serviceProviders/{serviceProviderId}/testScripts/query:
+    get:
+      x-OSLC-Service: "http://open-services.net/ns/qm#"
+      x-OSLC-QueryCapability:
+        title: "Test Script Query Capability"
+        resourceShape: "resourceShapes/testScript"
+        resourceTypes: "http://open-services.net/ns/qm#TestScript"
+      tags:
+      - "OSLC Service for {TestScript}"
+      summary: "Query capability for resources of type {TestScript}"
+      description: "Query capability for resources of type {<a href=\"http://open-services.net/ns/qm#TestScript\"\
+        >TestScript</a>}, with respective resource shapes {<a href=\"../services/resourceShapes/testScript\"\
+        >TestScript</a>}"
+      operationId: "queryTestScripts"
+      produces:
+      - "application/rdf+xml"
+      - "application/xml"
+      - "application/json"
+      - "text/turtle"
+      - "text/html"
+      parameters:
+      - name: "serviceProviderId"
+        in: "path"
+        required: true
+        type: "string"
+      - name: "oslc.where"
+        in: "query"
+        required: false
+        type: "string"
+      - name: "page"
+        in: "query"
+        required: false
+        type: "string"
+      - name: "limit"
+        in: "query"
+        required: false
+        type: "string"
+      responses:
+        "200":
+          description: "successful operation"
+          schema:
+            type: "array"
+            items:
+              $ref: "#/definitions/TestScript"
+  /serviceProviders/{serviceProviderId}/testScripts/{testScriptId}:
+    get:
+      x-OSLC-Service: "http://open-services.net/ns/qm#"
+      tags:
+      - "OSLC Service for {TestScript}"
+      summary: "GET for resources of type {TestScript}"
+      description: "GET for resources of type {<a href=\"http://open-services.net/ns/qm#TestScript\"\
+        >TestScript</a>}, with respective resource shapes {<a href=\"../services/resourceShapes/testScript\"\
+        >TestScript</a>}"
+      operationId: "getTestScript"
+      produces:
+      - "application/rdf+xml"
+      - "application/xml"
+      - "application/json"
+      - "text/turtle"
+      - "text/html"
+      - "application/x-oslc-compact+xml"
+      parameters:
+      - name: "serviceProviderId"
+        in: "path"
+        required: true
+        type: "string"
+      - name: "testScriptId"
+        in: "path"
+        required: true
+        type: "string"
+      responses:
+        "200":
+          description: "successful operation"
+          schema:
+            $ref: "#/definitions/TestScript"
+  /serviceProviders/{serviceProviderId}/testScripts/{testScriptId}/smallPreview:
+    get:
+      x-OSLC-Service: "http://open-services.net/ns/qm#"
+      tags:
+      - "OSLC Service for {TestScript}"
+      operationId: "getTestScriptAsHtmlSmallPreview"
+      produces:
+      - "text/html"
+      parameters:
+      - name: "serviceProviderId"
+        in: "path"
+        required: true
+        type: "string"
+      - name: "testScriptId"
+        in: "path"
+        required: true
+        type: "string"
+      responses:
+        default:
+          description: "successful operation"
+  /serviceProviders/{serviceProviderId}/testScripts/{testScriptId}/largePreview:
+    get:
+      x-OSLC-Service: "http://open-services.net/ns/qm#"
+      tags:
+      - "OSLC Service for {TestScript}"
+      operationId: "getTestScriptAsHtmlLargePreview"
+      produces:
+      - "text/html"
+      parameters:
+      - name: "serviceProviderId"
+        in: "path"
+        required: true
+        type: "string"
+      - name: "testScriptId"
+        in: "path"
+        required: true
+        type: "string"
+      responses:
+        default:
+          description: "successful operation"
+  /serviceProviders/{serviceProviderId}/testScripts/create:
+    post:
+      x-OSLC-Service: "http://open-services.net/ns/qm#"
+      x-OSLC-CreationFactory:
+        title: "Test Script Creation Factory"
+        resourceShapes: "resourceShapes/testScript"
+        resourceTypes: "http://open-services.net/ns/qm#TestScript"
+      tags:
+      - "OSLC Service for {TestScript}"
+      summary: "Creation factory for resources of type {TestScript}"
+      description: "Creation factory for resources of type {<a href=\"http://open-services.net/ns/qm#TestScript\"\
+        >TestScript</a>}, with respective resource shapes {<a href=\"../services/resourceShapes/testScript\"\
+        >TestScript</a>}"
+      operationId: "createTestScript"
+      consumes:
+      - "application/rdf+xml"
+      - "application/xml"
+      - "application/json"
+      - "text/turtle"
+      produces:
+      - "application/rdf+xml"
+      - "application/xml"
+      - "application/json"
+      - "text/turtle"
+      parameters:
+      - name: "serviceProviderId"
+        in: "path"
+        required: true
+        type: "string"
+      - in: "body"
+        name: "body"
+        required: false
+        schema:
+          $ref: "#/definitions/TestScript"
+      responses:
+        default:
+          description: "successful operation"
+definitions:
+  Compact:
+    type: "object"
+    properties:
+      about:
+        type: "string"
+        format: "uri"
+      types:
+        type: "array"
+        items:
+          type: "string"
+          format: "uri"
+      extendedProperties:
+        type: "object"
+        additionalProperties:
+          type: "object"
+      icon:
+        type: "string"
+        format: "uri"
+      largePreview:
+        $ref: "#/definitions/Preview"
+      shortTitle:
+        type: "string"
+      smallPreview:
+        $ref: "#/definitions/Preview"
+      title:
+        type: "string"
+  Preview:
+    type: "object"
+    properties:
+      about:
+        type: "string"
+        format: "uri"
+      types:
+        type: "array"
+        items:
+          type: "string"
+          format: "uri"
+      extendedProperties:
+        type: "object"
+        additionalProperties:
+          type: "object"
+      document:
+        type: "string"
+        format: "uri"
+      hintHeight:
+        type: "string"
+      hintWidth:
+        type: "string"
+      initialHeight:
+        type: "string"
+  Link:
+    type: "object"
+    properties:
+      value:
+        type: "string"
+        format: "uri"
+      label:
+        type: "string"
+  TestScript:
+    x-OSLC-ResourceShape:
+        title: "Test Script Resource Shape"
+        describes: "http://open-services.net/ns/qm#TestScript"
+    x-OSLC-Namespace: "http://open-services.net/ns/qm#"
+    x-OSLC-Schema:
+      - prefix: "oslc_qm"
+        namespace: "http://open-services.net/ns/qm#"
+    type: "object"
+    xml:
+      prefix: "oslc_qm"
+      namespace: "http://open-services.net/ns/qm#"
+    properties:
+      title:
+        type: "string"
+        x-OSLC-PropertyDefinition: "http://purl.org/dc/terms/title"
+        xml:
+          namespace: "http://purl.org/dc/terms/"
+          prefix: "dcterms"
+        x-OSLC-ReadOnly: true
+        x-OSLC-Occurs: "Exactly-One"
+      validatesRequirement:
+        x-OSLC-PropertyDefinition: "http://open-services.net/ns/qm#validatesRequirement"
+        $ref: "#/definitions/Link"
+      description:
+        x-OSLC-PropertyDefinition: "http://purl.org/dc/terms/description"
+        type: "string"

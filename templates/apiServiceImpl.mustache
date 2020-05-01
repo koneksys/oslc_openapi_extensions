@@ -1,0 +1,66 @@
+package {{package}}.impl;
+
+import {{package}}.*;
+{{#hasModel}}import {{modelPackage}}.*;{{/hasModel}}
+
+{{#imports}}import {{import}};
+{{/imports}}
+
+import java.util.Map;
+import java.util.List;
+import {{package}}.NotFoundException;
+
+import java.io.InputStream;
+import java.net.URISyntaxException;
+
+import org.glassfish.jersey.media.multipart.FormDataContentDisposition;
+
+import org.eclipse.lyo.oslc4j.core.model.ResourceShape;
+import org.eclipse.lyo.oslc4j.core.model.ResourceShapeFactory;
+import org.eclipse.lyo.oslc4j.core.exception.OslcCoreApplicationException;
+
+import javax.servlet.http.HttpServletResponse;
+
+import javax.ws.rs.core.Response;
+import javax.ws.rs.core.SecurityContext;
+{{#useBeanValidation}}
+import javax.validation.constraints.*;
+{{/useBeanValidation}}
+{{>generatedAnnotation}}
+{{#operations}}
+public class {{classname}}ServiceImpl extends {{classname}}Service {
+    {{#operation}}
+    {{#contents}}
+    @Override
+    public Response {{nickname}}({{#parameters}}{{>serviceQueryParams}}{{>servicePathParams}}{{>serviceHeaderParams}}{{>serviceBodyParams}}{{>serviceFormParams}}{{>serviceCookieParams}}, {{/parameters}}SecurityContext securityContext) throws NotFoundException {
+        {{#vendorExtensions.x-OSLC-ResourceShapeEndpoint}}
+        ResourceShape shape;
+        Class<?> resourceClass;
+        Response.ResponseBuilder builder;
+        String className = "{{modelPackage}}." + resourceType;
+        try {
+            String base = "{{basePath}}";
+            resourceClass = Class.forName(className);
+            shape = ResourceShapeFactory.createResourceShape(
+                base,
+                "{{baseName}}",
+                resourceType,
+                resourceClass);
+            builder = Response.ok(shape);
+        } catch (ClassNotFoundException ex) {
+            ex.printStackTrace();
+        builder = Response.status(HttpServletResponse.SC_NOT_FOUND);
+        } catch (OslcCoreApplicationException | URISyntaxException ex) {
+            builder = Response.serverError();
+        }
+        return builder.build();
+        {{/vendorExtensions.x-OSLC-ResourceShapeEndpoint}}
+        {{^vendorExtensions.x-OSLC-ResourceShapeEndpoint}}
+        // do some magic!
+        return Response.ok().entity(new ApiResponseMessage(ApiResponseMessage.OK, "magic!")).build();
+        {{/vendorExtensions.x-OSLC-ResourceShapeEndpoint}}
+    }
+    {{/contents}}
+    {{/operation}}
+}
+{{/operations}}
