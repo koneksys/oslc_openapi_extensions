@@ -1,5 +1,10 @@
 # OSLC Extensions for OpenAPI
 
+## Notes
+
+- Swagger Codegen version: 3.0.18
+- Swagger Code Generators version: 1.0.19
+
 ## Sample Usage
 
 ### Server
