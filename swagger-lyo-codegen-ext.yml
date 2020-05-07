@@ -276,16 +276,27 @@ definitions:
       namespace: "http://open-services.net/ns/qm#"
     properties:
       title:
-        type: "string"
+        x-OSLC-Name: "title"
         x-OSLC-PropertyDefinition: "http://purl.org/dc/terms/title"
+        x-OSLC-Occurs: "ExactlyOne"
+        x-OSLC-ValueType: "String"
+        x-OSLC-ReadOnly: false
+        type: "string"
         xml:
           namespace: "http://purl.org/dc/terms/"
           prefix: "dcterms"
-        x-OSLC-ReadOnly: true
-        x-OSLC-Occurs: "Exactly-One"
       validatesRequirement:
         x-OSLC-PropertyDefinition: "http://open-services.net/ns/qm#validatesRequirement"
+        x-OSLC-Name: "validatesRequirement"
+        x-OSLC-Occurs: "ExactlyOne"
+        x-OSLC-ValueType: "Resource"
+        x-OSLC-Range:
+          - "http://open-services.net/ns/rm#Requirement"
+        x-OSLC-ReadOnly: false
         $ref: "#/definitions/Link"
       description:
         x-OSLC-PropertyDefinition: "http://purl.org/dc/terms/description"
+        x-OSLC-Occurs: "ExactlyOne"
+        x-OSLC-ValueType: "String"
+        x-OSLC-ReadOnly: false
         type: "string"
