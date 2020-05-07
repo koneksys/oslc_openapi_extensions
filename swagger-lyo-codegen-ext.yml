@@ -29,6 +29,14 @@ paths:
           description: "successful operation"
   /provider/{serviceProviderId}:
     get:
+      x-OSLC-ServiceProvider:
+        title: "Service provider"
+        description: "Service provider description"
+        services:
+          - "ServiceProviders"
+        publisher:
+          title: "Service provider for Test Scripts"
+          id: "urn:oslc:sample"
       produces:
         - "application/rdf+xml"
         - "application/xml"
