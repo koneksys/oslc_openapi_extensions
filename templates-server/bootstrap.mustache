@@ -17,9 +17,29 @@ import org.springframework.context.annotation.Configuration;
 import io.swagger.v3.jaxrs2.integration.resources.OpenApiResource;
 
 import org.eclipse.lyo.oslc4j.provider.jena.JenaProvidersRegistry;
+import io.swagger.v3.oas.annotations.*;
+import io.swagger.v3.oas.annotations.info.*;
+import io.swagger.v3.oas.annotations.servers.*;
 
+import javax.ws.rs.ApplicationPath;
+
+@OpenAPIDefinition(
+    info = @Info(
+        title = "{{title}}",
+        version = "{{version}}",
+        description = "{{{appDescription}}}",
+        termsOfService = "{{termsOfService}}",
+        contact = @Contact(email = "{{infoEmail}}"),
+        license = @License(
+            name = "{{licenseInfo}}",
+            url = "{{licenseUrl}}"
+        )
+    ),
+    servers = @Server(url = "{{basePath}}")
+)
 @Configuration
 @SpringBootApplication
+@ApplicationPath("{{contextPath}}")
 @ComponentScan(basePackages = { "{{modelPackage}}", "{{apiPackage}}" })
 public class Bootstrap extends ResourceConfig implements CommandLineRunner {
 

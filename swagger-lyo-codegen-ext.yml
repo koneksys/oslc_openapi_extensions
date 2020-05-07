@@ -7,11 +7,14 @@ host: "localhost:8082"
 basePath: "/adaptor-testing/services"
 tags:
 - name: "OSLC Service for {TestScript}"
+- name: "OSLC Infrastructure"
 schemes:
 - "http"
 paths:
   /resourceShapes/{resourceType}:
     get:
+      tags:
+        - "OSLC Infrastructure"
       x-OSLC-ResourceShapeEndpoint: true
       produces:
         - "application/rdf+xml"
@@ -27,8 +30,12 @@ paths:
       responses:
         "200":
           description: "successful operation"
+          schema:
+            type: "string"
   /provider/{serviceProviderId}:
     get:
+      tags:
+        - "OSLC Infrastructure"
       x-OSLC-ServiceProvider:
         title: "Service provider"
         description: "Service provider description"
@@ -51,6 +58,8 @@ paths:
       responses:
         "200":
           description: "successful operation"
+          schema:
+            type: "string"
   /serviceProviders/{serviceProviderId}/testScripts/query:
     get:
       x-OSLC-Service: "http://open-services.net/ns/qm#"
@@ -62,7 +71,7 @@ paths:
       - "OSLC Service for {TestScript}"
       summary: "Query capability for resources of type {TestScript}"
       description: "Query capability for resources of type {<a href=\"http://open-services.net/ns/qm#TestScript\"\
-        >TestScript</a>}, with respective resource shapes {<a href=\"../services/resourceShapes/testScript\"\
+        >TestScript</a>}, with respective resource shapes {<a href=\"http://localhost:8082/adaptor-testing/services/resourceShapes/testScript\"\
         >TestScript</a>}"
       operationId: "queryTestScripts"
       produces:
@@ -102,7 +111,7 @@ paths:
       - "OSLC Service for {TestScript}"
       summary: "GET for resources of type {TestScript}"
       description: "GET for resources of type {<a href=\"http://open-services.net/ns/qm#TestScript\"\
-        >TestScript</a>}, with respective resource shapes {<a href=\"../services/resourceShapes/testScript\"\
+        >TestScript</a>}, with respective resource shapes {<a href=\"http://localhost:8082/adaptor-testing/services/resourceShapes/testScript\"\
         >TestScript</a>}"
       operationId: "getTestScript"
       produces:
@@ -177,7 +186,7 @@ paths:
       - "OSLC Service for {TestScript}"
       summary: "Creation factory for resources of type {TestScript}"
       description: "Creation factory for resources of type {<a href=\"http://open-services.net/ns/qm#TestScript\"\
-        >TestScript</a>}, with respective resource shapes {<a href=\"../services/resourceShapes/testScript\"\
+        >TestScript</a>}, with respective resource shapes {<a href=\"http://localhost:8082/adaptor-testing/services/resourceShapes/testScript\"\
         >TestScript</a>}"
       operationId: "createTestScript"
       consumes:
