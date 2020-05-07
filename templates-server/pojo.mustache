@@ -21,16 +21,16 @@ public class {{classname}} {{#parent}}extends {{{parent}}}{{/parent}} {{#seriali
   @SerializedName("{{baseName}}")
   {{/if}}
   {{#is this 'container'}}
-  private {{{datatypeWithEnum}}} {{name}}{{#required}} = {{{defaultValue}}}{{/required}}{{^required}} = null{{/required}};
+  private {{#vendorExtensions.x-OSLC-Range}}org.eclipse.lyo.oslc4j.core.model.Link{{/vendorExtensions.x-OSLC-Range}}{{^vendorExtensions.x-OSLC-Range}}{{{datatypeWithEnum}}}{{/vendorExtensions.x-OSLC-Range}} {{name}}{{#required}} = {{{defaultValue}}}{{/required}}{{^required}} = null{{/required}};
   {{/is}}
   {{#isNot this 'container'}}
-  private {{{datatypeWithEnum}}} {{name}} = {{{defaultValue}}};
+  private {{#vendorExtensions.x-OSLC-Range}}org.eclipse.lyo.oslc4j.core.model.Link{{/vendorExtensions.x-OSLC-Range}}{{^vendorExtensions.x-OSLC-Range}}{{{datatypeWithEnum}}}{{/vendorExtensions.x-OSLC-Range}} {{name}} = {{{defaultValue}}};
   {{/isNot}}
 
   {{/vars}}
   {{#vars}}
   {{^isReadOnly}}
-  public {{classname}} {{name}}({{{datatypeWithEnum}}} {{name}}) {
+  public {{classname}} {{name}}({{#vendorExtensions.x-OSLC-Range}}org.eclipse.lyo.oslc4j.core.model.Link{{/vendorExtensions.x-OSLC-Range}}{{^vendorExtensions.x-OSLC-Range}}{{{datatypeWithEnum}}}{{/vendorExtensions.x-OSLC-Range}} {{name}}) {
     this.{{name}} = {{name}};
     return this;
   }
@@ -93,11 +93,11 @@ public class {{classname}} {{#parent}}extends {{{parent}}}{{/parent}} {{#seriali
   {{#vendorExtensions.x-OSLC-ReadOnly}}
   @OslcReadOnly({{this}})
   {{/vendorExtensions.x-OSLC-ReadOnly}}
-  {{#vendorExtensions.x-OSLC-Range.length}}
-  @OslcReadOnly({
-  {{#vendorExtensions.x-OSLC-Range}}{{this}}{{/vendorExtensions.x-OSLC-Range}},
+  {{#vendorExtensions.x-OSLC-Range}}
+  @OslcRange({
+  {{#vendorExtensions.x-OSLC-Range}}"{{this}}"{{/vendorExtensions.x-OSLC-Range}},
   })
-  {{/vendorExtensions.x-OSLC-Range.length}}
+  {{/vendorExtensions.x-OSLC-Range}}
   {{#jackson}}
   @JsonProperty("{{baseName}}")
   {{/jackson}}
@@ -107,12 +107,12 @@ public class {{classname}} {{#parent}}extends {{{parent}}}{{/parent}} {{#seriali
   {{^useOas2}}
   @Schema({{#example}}example = "{{{example}}}", {{/example}}{{#required}}required = {{required}}, {{/required}}description = "{{{description}}}")
   {{/useOas2}}
-{{#useBeanValidation}}{{>beanValidation}}{{/useBeanValidation}}  public {{{datatypeWithEnum}}} {{getter}}() {
+{{#useBeanValidation}}{{>beanValidation}}{{/useBeanValidation}}  public {{#vendorExtensions.x-OSLC-Range}}org.eclipse.lyo.oslc4j.core.model.Link{{/vendorExtensions.x-OSLC-Range}}{{^vendorExtensions.x-OSLC-Range}}{{{datatypeWithEnum}}}{{/vendorExtensions.x-OSLC-Range}} {{getter}}() {
     return {{name}};
   }
   {{^isReadOnly}}
 
-  public void {{setter}}({{{datatypeWithEnum}}} {{name}}) {
+  public void {{setter}}({{#vendorExtensions.x-OSLC-Range}}org.eclipse.lyo.oslc4j.core.model.Link{{/vendorExtensions.x-OSLC-Range}}{{^vendorExtensions.x-OSLC-Range}}{{{datatypeWithEnum}}}{{/vendorExtensions.x-OSLC-Range}} {{name}}) {
     this.{{name}} = {{name}};
   }
   {{/isReadOnly}}

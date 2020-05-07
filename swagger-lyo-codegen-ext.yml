@@ -254,14 +254,14 @@ definitions:
         type: "string"
       initialHeight:
         type: "string"
-  Link:
-    type: "object"
-    properties:
-      value:
-        type: "string"
-        format: "uri"
-      label:
-        type: "string"
+ # Link:
+ #   type: "object"
+ #   properties:
+ #     value:
+ #       type: "string"
+ #       format: "uri"
+ #     label:
+ #       type: "string"
   TestScript:
     x-OSLC-ResourceShape:
         title: "Test Script Resource Shape"
@@ -293,7 +293,7 @@ definitions:
         x-OSLC-Range:
           - "http://open-services.net/ns/rm#Requirement"
         x-OSLC-ReadOnly: false
-        $ref: "#/definitions/Link"
+        type: "string"
       description:
         x-OSLC-PropertyDefinition: "http://purl.org/dc/terms/description"
         x-OSLC-Occurs: "ExactlyOne"
