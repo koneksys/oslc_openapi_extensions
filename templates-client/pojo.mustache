@@ -2,8 +2,11 @@
  * {{#description}}{{.}}{{/description}}{{^description}}{{classname}}{{/description}}
  */
 {{#description}}{{#useOas2}}@ApiModel{{/useOas2}}{{^useOas2}}@Schema{{/useOas2}}(description = "{{{description}}}"){{/description}}
+{{#vendorExtensions.x-OSLC-ResourceShape}}
+@OslcResourceShape(title = "{{title}}", describes = "{{describes}}")
+{{#vendorExtensions.x-OSLC-Namespace}}@OslcNamespace("{{this}}"){{/vendorExtensions.x-OSLC-Namespace}}
+{{/vendorExtensions.x-OSLC-ResourceShape}}
 {{>generatedAnnotation}}{{#discriminator}}{{>typeInfoAnnotation}}{{/discriminator}}{{>xmlAnnotation}}
-
 public class {{classname}} {{#parent}}extends {{{parent}}} {{/parent}}{{#parcelableModel}}implements Parcelable {{#serializableModel}}, Serializable {{/serializableModel}}{{#interfaceModels}}{{#@first}}, {{/@first}}{{classname}}{{^@last}}, {{/@last}}{{#@last}} {{/@last}}{{/interfaceModels}}{{/parcelableModel}}{{^parcelableModel}}{{#serializableModel}}implements Serializable{{#interfaceModels}}, {{classname}}{{^@last}}, {{/@last}}{{#@last}} {{/@last}}{{/interfaceModels}}{{/serializableModel}}{{^serializableModel}}{{#interfaceModels}}{{#@first}}implements {{/@first}}{{classname}}{{^@last}}, {{/@last}}{{#@last}} {{/@last}}{{/interfaceModels}}{{/serializableModel}}{{/parcelableModel}}{
 {{#serializableModel}}
   private static final long serialVersionUID = 1L;
@@ -65,10 +68,10 @@ public class {{classname}} {{#parent}}extends {{{parent}}} {{/parent}}{{#parcela
   @SerializedName("{{baseName}}")
   {{/gson}}
   {{#isContainer}}
-  private {{{datatypeWithEnum}}} {{name}}{{#required}} = {{{defaultValue}}}{{/required}}{{^required}} = null{{/required}};
+  private {{#vendorExtensions.x-OSLC-Range}}org.eclipse.lyo.oslc4j.core.model.Link{{/vendorExtensions.x-OSLC-Range}}{{^vendorExtensions.x-OSLC-Range}}{{{datatypeWithEnum}}}{{/vendorExtensions.x-OSLC-Range}} {{name}}{{#required}} = {{{defaultValue}}}{{/required}}{{^required}} = null{{/required}};
   {{/isContainer}}
   {{^isContainer}}
-  private {{{datatypeWithEnum}}} {{name}} = {{{defaultValue}}};
+  private {{#vendorExtensions.x-OSLC-Range}}org.eclipse.lyo.oslc4j.core.model.Link{{/vendorExtensions.x-OSLC-Range}}{{^vendorExtensions.x-OSLC-Range}}{{{datatypeWithEnum}}}{{/vendorExtensions.x-OSLC-Range}} {{name}} = {{{defaultValue}}};
   {{/isContainer}}
 
   {{/vars}}
@@ -95,7 +98,7 @@ public class {{classname}} {{#parent}}extends {{{parent}}} {{/parent}}{{#parcela
   {{/parcelableModel}}
   {{#vars}}
   {{^isReadOnly}}
-  public {{classname}} {{name}}({{{datatypeWithEnum}}} {{name}}) {
+  public {{classname}} {{name}}({{#vendorExtensions.x-OSLC-Range}}org.eclipse.lyo.oslc4j.core.model.Link{{/vendorExtensions.x-OSLC-Range}}{{^vendorExtensions.x-OSLC-Range}}{{{datatypeWithEnum}}}{{/vendorExtensions.x-OSLC-Range}} {{name}}) {
     this.{{name}} = {{name}};
     return this;
   }
@@ -150,12 +153,32 @@ public class {{classname}} {{#parent}}extends {{{parent}}} {{/parent}}{{#parcela
 {{#vendorExtensions.extraAnnotation}}
   {{{vendorExtensions.extraAnnotation}}}
 {{/vendorExtensions.extraAnnotation}}
-  public {{{datatypeWithEnum}}} {{getter}}() {
+  {{#vendorExtensions.x-OSLC-PropertyDefinition}}
+  @OslcPropertyDefinition("{{this}}")
+  {{/vendorExtensions.x-OSLC-PropertyDefinition}}
+  {{#vendorExtensions.x-OSLC-Name}}
+  @OslcName("{{this}}")
+  {{/vendorExtensions.x-OSLC-Name}}
+  {{#vendorExtensions.x-OSLC-Occurs}}
+  @OslcOccurs(Occurs.{{this}})
+  {{/vendorExtensions.x-OSLC-Occurs}}
+  {{#vendorExtensions.x-OSLC-ValueType}}
+  @OslcValueType(ValueType.{{this}})
+  {{/vendorExtensions.x-OSLC-ValueType}}
+  {{#vendorExtensions.x-OSLC-ReadOnly}}
+  @OslcReadOnly({{this}})
+  {{/vendorExtensions.x-OSLC-ReadOnly}}
+  {{#vendorExtensions.x-OSLC-Range}}
+   @OslcRange({
+   {{#vendorExtensions.x-OSLC-Range}}"{{this}}"{{/vendorExtensions.x-OSLC-Range}},
+   })
+  {{/vendorExtensions.x-OSLC-Range}}
+  public {{#vendorExtensions.x-OSLC-Range}}org.eclipse.lyo.oslc4j.core.model.Link{{/vendorExtensions.x-OSLC-Range}}{{^vendorExtensions.x-OSLC-Range}}{{{datatypeWithEnum}}}{{/vendorExtensions.x-OSLC-Range}} {{getter}}() {
     return {{name}};
   }
   {{^isReadOnly}}
 
-  public void {{setter}}({{{datatypeWithEnum}}} {{name}}) {
+  public void {{setter}}({{#vendorExtensions.x-OSLC-Range}}org.eclipse.lyo.oslc4j.core.model.Link{{/vendorExtensions.x-OSLC-Range}}{{^vendorExtensions.x-OSLC-Range}}{{{datatypeWithEnum}}}{{/vendorExtensions.x-OSLC-Range}} {{name}}) {
     this.{{name}} = {{name}};
   }
   {{/isReadOnly}}

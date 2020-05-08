@@ -124,8 +124,8 @@
           <target>1.8</target>
           {{/java8}}
           {{^java8}}
-          <source>1.7</source>
-          <target>1.7</target>
+          <source>1.8</source>
+          <target>1.8</target>
           {{/java8}}
         </configuration>
       </plugin>
@@ -304,11 +304,12 @@
       <scope>test</scope>
     </dependency>
     <dependency>
-      <groupId>org.eclipse.lyo.oslc4j.core</groupId>
-      <artifactId>oslc4j-jena-provider</artifactId>
+      <groupId>org.eclipse.lyo.clients</groupId>
+      <artifactId>oslc4j-client</artifactId>
       <version>4.0.0-SNAPSHOT</version>
     </dependency>
-    <repositories>
+  </dependencies>
+  <repositories>
         <repository>
             <id>lyo-releases</id>
             <name>Eclipse Lyo Releases</name>
@@ -322,7 +323,6 @@
             <releases><enabled>false</enabled></releases>
         </repository>
   </repositories>
-  </dependencies>
   <properties>
     {{#useOas2}}
     <swagger-core-version>1.5.15</swagger-core-version>
