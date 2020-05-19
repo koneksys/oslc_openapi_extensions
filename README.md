@@ -32,9 +32,6 @@ Test Script Resource Shape:  http://localhost:8082/adaptor-testing/services/reso
 
 Service provider:  http://localhost:8082/adaptor-testing/services/provider/test
 
-OpenAPI: http://localhost:8082/adaptor-testing/services/openapi.json
-
-
 #### Optional: Add Swagger UI
 
 The generated project comes with a Maven plugin that downloads the Swagger UI resources into the target/static directory. 
@@ -48,7 +45,7 @@ mvn clean package
 ```
 5. Start the server.
 
-### Client Generation
+### Client Generation (in development)
 
 1. Generate client library with:
 ```ssh
