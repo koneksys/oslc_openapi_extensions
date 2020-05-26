@@ -336,6 +336,7 @@ components:
           x-OSLC-Occurs: ExactlyOne
           x-OSLC-PropertyDefinition: http://purl.org/dc/terms/title
           x-OSLC-ReadOnly: false
+          x-OSLC-Description: The Test Scripts Title
         validatesRequirement:
           type: string
           x-OSLC-Name: validatesRequirement
