@@ -356,7 +356,9 @@ components:
         prefix: oslc_qm
       x-OSLC-ResourceShape:
         title: Test Script Resource Shape
-        describes: http://open-services.net/ns/qm#TestScript
+        describes: 
+          - http://open-services.net/ns/qm#TestScript
+          - http://open-services.net/ns/qm#TestPlan
       x-OSLC-Namespace: http://open-services.net/ns/qm#
       x-OSLC-Schema:
       - prefix: oslc_qm

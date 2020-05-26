@@ -1,0 +1,8 @@
+{{#vendorExtensions.x-OSLC-ResourceShape}}
+@OslcResourceShape(
+    {{#title}}title = "{{title}}",{{/title}} 
+    describes = {
+        {{#describes}}"{{this}}",{{/describes}}
+    })
+{{#vendorExtensions.x-OSLC-Namespace}}@OslcNamespace("{{this}}"){{/vendorExtensions.x-OSLC-Namespace}}
+{{/vendorExtensions.x-OSLC-ResourceShape}}
