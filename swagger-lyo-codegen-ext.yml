@@ -341,6 +341,7 @@ components:
             - ValueOne
             - ValueTwo
           x-OSLC-AllowedValues: http://localhost:8080/allowedValues
+          x-OSLC-DefaultValue: ValueOne
         validatesRequirement:
           type: string
           x-OSLC-Name: validatesRequirement
