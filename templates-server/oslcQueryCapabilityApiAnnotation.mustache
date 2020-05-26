@@ -1,0 +1,9 @@
+{{#vendorExtensions.x-OSLC-QueryCapability}}
+@OslcQueryCapability(
+    {{#title}}title = "{{title}}",{{/title}}
+    {{#label}}label = "{{label}}",{{/label}}
+    {{#resourceShape}}resourceShape = "{{resourceShape}}",{{/resourceShape}}
+    resourceTypes = { {{#resourceTypes}}"{{this}}", {{/resourceTypes}} },
+    usages = { {{#usages}}"{{this}}",{{/usages}} }
+    )
+    {{/vendorExtensions.x-OSLC-QueryCapability}}

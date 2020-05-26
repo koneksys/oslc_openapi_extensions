@@ -82,12 +82,7 @@ public class {{classname}}  {
 {{#contents}}
     @{{httpMethod}}
     {{>oslcCreationFactoryApiAnnotation}}
-    {{#vendorExtensions.x-OSLC-QueryCapability}}
-    @OslcQueryCapability(
-        title = "{{title}}"
-        , resourceShape = "{{resourceShapes}}"
-        , resourceTypes = "{{resourceTypes}}")
-    {{/vendorExtensions.x-OSLC-QueryCapability}}
+    {{>oslcQueryCapabilityApiAnnotation}}
     {{#subresourceOperation}}@Path("{{{path}}}"){{/subresourceOperation}}
     {{#hasConsumes}}@Consumes({ {{#consumes}}"{{{mediaType}}}"{{#hasMore}}, {{/hasMore}}{{/consumes}} }){{/hasConsumes}}
     {{#hasProduces}}@Produces({ {{#produces}}"{{{mediaType}}}"{{#hasMore}}, {{/hasMore}}{{/produces}} }){{/hasProduces}}

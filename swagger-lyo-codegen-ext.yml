@@ -134,7 +134,8 @@ paths:
       x-OSLC-QueryCapability:
         title: Test Script Query Capability
         resourceShape: resourceShapes/testScript
-        resourceTypes: http://open-services.net/ns/qm#TestScript
+        resourceTypes: 
+          - http://open-services.net/ns/qm#TestScript
   /serviceProviders/{serviceProviderId}/testScripts/{testScriptId}:
     get:
       tags:
