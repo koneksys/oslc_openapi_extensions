@@ -343,6 +343,7 @@ components:
           x-OSLC-AllowedValues: http://localhost:8080/allowedValues
           x-OSLC-Hidden: true
           x-OSLC-MaxSize: 250
+          x-OSLC-MemberProperty: true
         validatesRequirement:
           type: string
           x-OSLC-Name: validatesRequirement
