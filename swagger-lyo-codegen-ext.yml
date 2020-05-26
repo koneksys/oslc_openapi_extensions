@@ -255,8 +255,11 @@ paths:
       x-OSLC-Service: http://open-services.net/ns/qm#
       x-OSLC-CreationFactory:
         title: Test Script Creation Factory
-        resourceShapes: resourceShapes/testScript
-        resourceTypes: http://open-services.net/ns/qm#TestScript
+        resourceShapes: 
+          - resourceShapes/testScript
+          - resourceShapes/testPlan
+        resourceTypes: 
+          - http://open-services.net/ns/qm#TestScript
 components:
   schemas:
     Compact:

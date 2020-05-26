@@ -1,0 +1,9 @@
+{{#vendorExtensions.x-OSLC-CreationFactory}}
+@OslcCreationFactory(
+    {{#title}}title = "{{title}}", {{/title}}
+    {{#label}}label = "{{label}}",{{/label}}
+    resourceShapes = { {{#resourceShapes}}"{{this}}", {{/resourceShapes}} },
+    resourceTypes = { {{#resourceTypes}}"{{this}}", {{/resourceTypes}} },
+    usages = { {{#usages}}"{{this}}",{{/usages}} }
+    )
+{{/vendorExtensions.x-OSLC-CreationFactory}}
