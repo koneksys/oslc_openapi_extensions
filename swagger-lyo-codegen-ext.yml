@@ -346,6 +346,7 @@ components:
           x-OSLC-MemberProperty: true
           x-OSLC-ValueShape: http://localhost:9000/valueShape
           x-OSLC-Title: The Title
+          x-OSLC-Representation: Inline
         validatesRequirement:
           type: string
           x-OSLC-Name: validatesRequirement
