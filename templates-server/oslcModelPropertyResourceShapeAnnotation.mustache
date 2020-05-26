@@ -1,0 +1,20 @@
+{{#vendorExtensions.x-OSLC-PropertyDefinition}}
+@OslcPropertyDefinition("{{this}}")
+{{/vendorExtensions.x-OSLC-PropertyDefinition}}
+{{#vendorExtensions.x-OSLC-Name}}
+@OslcName("{{this}}")
+{{/vendorExtensions.x-OSLC-Name}}
+{{#vendorExtensions.x-OSLC-Occurs}}
+@OslcOccurs(Occurs.{{this}})
+{{/vendorExtensions.x-OSLC-Occurs}}
+{{#vendorExtensions.x-OSLC-ValueType}}
+@OslcValueType(ValueType.{{this}})
+{{/vendorExtensions.x-OSLC-ValueType}}
+{{#vendorExtensions.x-OSLC-ReadOnly}}
+@OslcReadOnly({{this}})
+{{/vendorExtensions.x-OSLC-ReadOnly}}
+{{#vendorExtensions.x-OSLC-Range}}
+@OslcRange({
+    {{#vendorExtensions.x-OSLC-Range}}"{{this}}"{{/vendorExtensions.x-OSLC-Range}},
+})
+{{/vendorExtensions.x-OSLC-Range}}
