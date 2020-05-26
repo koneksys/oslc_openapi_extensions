@@ -18,16 +18,16 @@ public class {{classname}} {{#parent}}extends {{{parent}}}{{/parent}} {{#seriali
   @SerializedName("{{baseName}}")
   {{/if}}
   {{#is this 'container'}}
-  private {{#vendorExtensions.x-OSLC-Range}}org.eclipse.lyo.oslc4j.core.model.Link{{/vendorExtensions.x-OSLC-Range}}{{^vendorExtensions.x-OSLC-Range}}{{{datatypeWithEnum}}}{{/vendorExtensions.x-OSLC-Range}} {{name}}{{#required}} = {{{defaultValue}}}{{/required}}{{^required}} = null{{/required}};
+  private {{>oslcLinkedResourceType}} {{name}}{{#required}} = {{{defaultValue}}}{{/required}}{{^required}} = null{{/required}};
   {{/is}}
   {{#isNot this 'container'}}
-  private {{#vendorExtensions.x-OSLC-Range}}org.eclipse.lyo.oslc4j.core.model.Link{{/vendorExtensions.x-OSLC-Range}}{{^vendorExtensions.x-OSLC-Range}}{{{datatypeWithEnum}}}{{/vendorExtensions.x-OSLC-Range}} {{name}} = {{{defaultValue}}};
+  private {{>oslcLinkedResourceType}} {{name}} = {{{defaultValue}}};
   {{/isNot}}
 
   {{/vars}}
   {{#vars}}
   {{^isReadOnly}}
-  public {{classname}} {{name}}({{#vendorExtensions.x-OSLC-Range}}org.eclipse.lyo.oslc4j.core.model.Link{{/vendorExtensions.x-OSLC-Range}}{{^vendorExtensions.x-OSLC-Range}}{{{datatypeWithEnum}}}{{/vendorExtensions.x-OSLC-Range}} {{name}}) {
+  public {{classname}} {{name}}({{>oslcLinkedResourceType}} {{name}}) {
     this.{{name}} = {{name}};
     return this;
   }
@@ -104,12 +104,12 @@ public class {{classname}} {{#parent}}extends {{{parent}}}{{/parent}} {{#seriali
   {{^useOas2}}
   @Schema({{#example}}example = "{{{example}}}", {{/example}}{{#required}}required = {{required}}, {{/required}}description = "{{{description}}}")
   {{/useOas2}}
-{{#useBeanValidation}}{{>beanValidation}}{{/useBeanValidation}}  public {{#vendorExtensions.x-OSLC-Range}}org.eclipse.lyo.oslc4j.core.model.Link{{/vendorExtensions.x-OSLC-Range}}{{^vendorExtensions.x-OSLC-Range}}{{{datatypeWithEnum}}}{{/vendorExtensions.x-OSLC-Range}} {{getter}}() {
+{{#useBeanValidation}}{{>beanValidation}}{{/useBeanValidation}}  public {{>oslcLinkedResourceType}} {{getter}}() {
     return {{name}};
   }
   {{^isReadOnly}}
 
-  public void {{setter}}({{#vendorExtensions.x-OSLC-Range}}org.eclipse.lyo.oslc4j.core.model.Link{{/vendorExtensions.x-OSLC-Range}}{{^vendorExtensions.x-OSLC-Range}}{{{datatypeWithEnum}}}{{/vendorExtensions.x-OSLC-Range}} {{name}}) {
+  public void {{setter}}({{>oslcLinkedResourceType}} {{name}}) {
     this.{{name}} = {{name}};
   }
   {{/isReadOnly}}
