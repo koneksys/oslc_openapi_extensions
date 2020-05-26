@@ -1,0 +1,47 @@
+ServiceProvider provider = new ServiceProvider();
+String pathBaseName = "{{baseName}}/";
+Publisher publisher = new Publisher();
+{{#publisher.title}}publisher.setTitle("{{publisher.title}}");{{/publisher.title}}
+{{#publisher.identifier}}publisher.setIdentifier("{{publisher.identifier}}");{{/publisher.identifier}}
+{{#publisher.label}}publisher.setLabel("{{publisher.label}}");{{/publisher.label}}
+{{#publisher.icon}}publisher.setIcon(URI.create("{{publisher.icon}}"));{{/publisher.icon}}
+
+Class<?>[] services = new Class[]{
+{{#services}}
+{{this}}Api.class,
+{{/services}}
+};
+Map<String, Object> paramValues = new HashMap<>();
+{{#parameters}}
+paramValues.put("{{paramName}}", {{paramName}});
+{{/parameters}}
+
+try {
+    provider = ServiceProviderFactory.createServiceProvider(
+        "{{basePath}}",
+        "{{basePath}}",
+        "{{this.title}}",
+        "{{this.description}}",
+        publisher,
+        services,
+        {{#parameters}}
+        paramValues
+    );
+    provider.setAbout(URI.create("{{basePath}}/" + pathBaseName + {{paramName}}));
+        {{/parameters}}
+        {{^parameters}}
+    );
+    provider.setAbout(URI.create("{{basePath}}/" + {{baseName}}));
+        {{/parameters}}
+    provider.setDetails(new URI[]{
+        {{#details}}URI.create("{{this}}"),{{/details}}
+    });
+    provider.setPrefixDefinitions(new PrefixDefinition[]{
+        {{#prefixDefinitions}}new PrefixDefinition("{{this.prefix}}", URI.create("{{this.prefixBase}}")),{{/prefixDefinitions}}
+    });
+} catch (URISyntaxException e) {
+    e.printStackTrace();
+} catch (OslcCoreApplicationException e) {
+    e.printStackTrace();
+}
+return Response.ok().entity(provider).build();

@@ -39,41 +39,7 @@ public class {{classname}}ServiceImpl extends {{classname}}Service {
         {{/vendorExtensions.x-OSLC-ResourceShapeEndpoint}}
         {{^vendorExtensions.x-OSLC-ResourceShapeEndpoint}}
             {{#vendorExtensions.x-OSLC-ServiceProvider}}
-        ServiceProvider provider = new ServiceProvider();
-        String pathBaseName = "{{baseName}}/";
-        Publisher publisher = new Publisher("{{publisher.title}}", "{{publisher.id}}");
-        Class<?>[] services = new Class[]{
-        {{#services}}
-        {{this}}Api.class,
-        {{/services}}
-        };
-        Map<String, Object> paramValues = new HashMap<>();
-        {{#parameters}}
-        paramValues.put("{{paramName}}", {{paramName}});
-        {{/parameters}}
-
-        try {
-            provider = ServiceProviderFactory.createServiceProvider(
-                    "{{basePath}}",
-                    "{{basePath}}",
-                    "{{this.title}}",
-                    "{{this.description}}",
-                    publisher,
-                    services,
-                    {{#parameters}}
-                    paramValues);
-            provider.setAbout(URI.create("{{basePath}}/" + pathBaseName + {{paramName}}));
-                    {{/parameters}}
-                    {{^parameters}}
-                    );
-            provider.setAbout(URI.create("{{basePath}}/" + {{baseName}}));
-                    {{/parameters}}
-        } catch (URISyntaxException e) {
-            e.printStackTrace();
-        } catch (OslcCoreApplicationException e) {
-            e.printStackTrace();
-        }
-        return Response.ok().entity(provider).build();
+        {{>oslcServiceProviderApiImpl}}
             {{/vendorExtensions.x-OSLC-ServiceProvider}}
             {{^vendorExtensions.x-OSLC-ServiceProvider}}
         // do some magic!

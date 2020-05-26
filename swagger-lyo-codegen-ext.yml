@@ -72,9 +72,17 @@ paths:
         description: Service provider description
         services:
         - ServiceProviders
+        details:
+          - "http://localhost:8080"
+          - "http://localhost:9000"
+        prefixDefinitions:
+          - prefix: "rdf"
+            prefixBase: "http://localhost:1111/rdf"
+          - prefix: "oslc"
+            prefixBase: "http://localhost:1112/oslc"
         publisher:
           title: Service provider for Test Scripts
-          id: urn:oslc:sample
+          identifier: urn:oslc:sample
   /serviceProviders/{serviceProviderId}/testScripts/query:
     get:
       tags:
