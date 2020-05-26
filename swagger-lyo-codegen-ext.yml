@@ -340,6 +340,7 @@ components:
           x-OSLC-AllowedValue:
             - ValueOne
             - ValueTwo
+          x-OSLC-AllowedValues: http://localhost:8080/allowedValues
         validatesRequirement:
           type: string
           x-OSLC-Name: validatesRequirement
