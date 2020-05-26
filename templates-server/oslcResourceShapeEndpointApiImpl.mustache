@@ -1,0 +1,21 @@
+ResourceShape shape;
+Class<?> resourceClass;
+Response.ResponseBuilder builder;
+String className = "{{modelPackage}}." + resourceType.substring(0,1).toUpperCase() + resourceType.substring(1);
+try {
+    String base = "{{basePath}}";
+    resourceClass = Class.forName(className);
+    shape = ResourceShapeFactory.createResourceShape(
+        base,
+        "{{baseName}}",
+        resourceType,
+        resourceClass
+    );
+    builder = Response.ok(shape);
+} catch (ClassNotFoundException ex) {
+    ex.printStackTrace();
+    builder = Response.status(HttpServletResponse.SC_NOT_FOUND);
+} catch (OslcCoreApplicationException | URISyntaxException ex) {
+    builder = Response.serverError();
+}
+return builder.build();
