@@ -11,7 +11,7 @@
 @OslcValueType(ValueType.{{this}})
 {{/vendorExtensions.x-OSLC-ValueType}}
 {{#vendorExtensions.x-OSLC-ReadOnly}}
-@OslcReadOnly({{this}})
+@OslcReadOnly(true)
 {{/vendorExtensions.x-OSLC-ReadOnly}}
 {{#vendorExtensions.x-OSLC-Range}}
 @OslcRange({
@@ -32,3 +32,9 @@
 {{#vendorExtensions.x-OSLC-DefaultValue}}
 @OslcDefaultValue("{{this}}")
 {{/vendorExtensions.x-OSLC-DefaultValue}}
+{{#vendorExtensions.x-OSLC-Hidden}}
+@OslcHidden(true)
+{{/vendorExtensions.x-OSLC-Hidden}}
+{{#vendorExtensions.x-OSLC-MaxSize}}
+@OslcMaxSize({{this}})
+{{/vendorExtensions.x-OSLC-MaxSize}}
