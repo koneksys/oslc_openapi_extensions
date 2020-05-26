@@ -337,6 +337,9 @@ components:
           x-OSLC-PropertyDefinition: http://purl.org/dc/terms/title
           x-OSLC-ReadOnly: false
           x-OSLC-Description: The Test Scripts Title
+          x-OSLC-AllowedValue:
+            - ValueOne
+            - ValueTwo
         validatesRequirement:
           type: string
           x-OSLC-Name: validatesRequirement

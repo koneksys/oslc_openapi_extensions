@@ -21,3 +21,8 @@
 {{#vendorExtensions.x-OSLC-Description}}
 @OslcDescription("{{this}}")
 {{/vendorExtensions.x-OSLC-Description}}
+{{#vendorExtensions.x-OSLC-AllowedValue.0}}
+@OslcAllowedValue({
+    {{#vendorExtensions.x-OSLC-AllowedValue}}"{{this}}",{{/vendorExtensions.x-OSLC-AllowedValue}}
+})
+{{/vendorExtensions.x-OSLC-AllowedValue.0}}
