@@ -345,6 +345,7 @@ components:
           x-OSLC-MaxSize: 250
           x-OSLC-MemberProperty: true
           x-OSLC-ValueShape: http://localhost:9000/valueShape
+          x-OSLC-Title: The Title
         validatesRequirement:
           type: string
           x-OSLC-Name: validatesRequirement
