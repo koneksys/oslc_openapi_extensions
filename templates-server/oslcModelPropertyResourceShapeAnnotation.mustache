@@ -50,3 +50,9 @@
 {{#vendorExtensions.x-OSLC-Representation}}
 @OslcRepresentation(Representation.{{this}})
 {{/vendorExtensions.x-OSLC-Representation}}
+{{#vendorExtensions.x-OSLC-RDFCollectionType}}
+@OslcRdfCollectionType(
+    {{#this.namespaceURI}}namespaceURI="{{this}}",{{/this.namespaceURI}}
+    {{#this.collectionType}}collectionType="{{this}}"{{/this.collectionType}}
+)
+{{/vendorExtensions.x-OSLC-RDFCollectionType}}

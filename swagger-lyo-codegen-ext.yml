@@ -347,6 +347,9 @@ components:
           x-OSLC-ValueShape: http://localhost:9000/valueShape
           x-OSLC-Title: The Title
           x-OSLC-Representation: Inline
+          x-OSLC-RDFCollectionType:
+            namespaceURI: http://localhost:8080/namespaceURI
+            collectionType: Bag
         validatesRequirement:
           type: string
           x-OSLC-Name: validatesRequirement
