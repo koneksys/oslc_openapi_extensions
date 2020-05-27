@@ -374,6 +374,7 @@ components:
           - http://open-services.net/ns/qm#TestScript
           - http://open-services.net/ns/qm#TestPlan
       x-OSLC-Namespace: http://open-services.net/ns/qm#
+      x-OSLC-NotQueryResult: true
       x-OSLC-Schema:
       - prefix: oslc_qm
         namespace: http://open-services.net/ns/qm#
