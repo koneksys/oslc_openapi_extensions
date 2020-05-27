@@ -85,13 +85,7 @@ public class {{classname}} {{#parent}}extends {{{parent}}}{{/parent}} {{#seriali
   {{/useOas2}}
   {{^useOas2}}
   @Schema({{#example}}example = "{{{example}}}", {{/example}}{{#required}}required = {{required}}, {{/required}}description = "{{{description}}}"
-  ,extensions = {
-                    @Extension(name = "x-userStatus", properties = {
-                            @ExtensionProperty(name = "name", value = "Josh")}),
-                    @Extension(name = "userStatus-extensions", properties = {
-                            @ExtensionProperty(name = "lastName", value = "Hart"),
-                            @ExtensionProperty(name = "address", value = "House")})
-            }
+  {{>oslcModelPropertyExtension}}
   )
   {{/useOas2}}
 {{#useBeanValidation}}{{>beanValidation}}{{/useBeanValidation}}  public {{>oslcLinkedResourceType}} {{getter}}() {

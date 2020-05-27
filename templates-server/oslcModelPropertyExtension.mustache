@@ -1,0 +1,62 @@
+,extensions = {
+                {{#vendorExtensions}}
+                {{#x-OSLC-PropertyDefinition}}
+                @Extension(properties = { @ExtensionProperty(name = "OSLC-PropertyDefinition", value = "{{this}}") })
+                {{/x-OSLC-PropertyDefinition}}
+                {{#x-OSLC-Name}}
+                , @Extension(properties = { @ExtensionProperty(name = "OSLC-Name", value = "{{this}}") })
+                {{/x-OSLC-Name}}
+                {{#x-OSLC-Title}}
+                , @Extension(properties = { @ExtensionProperty(name = "OSLC-Title", value = "{{this}}") })
+                {{/x-OSLC-Title}}
+                {{#x-OSLC-Description}}
+                , @Extension(properties = { @ExtensionProperty(name = "OSLC-Description", value = "{{this}}") })
+                {{/x-OSLC-Description}}
+                {{#x-OSLC-Occurs}}
+                , @Extension(properties = { @ExtensionProperty(name = "OSLC-Occurs", value = "{{this}}") })
+                {{/x-OSLC-Occurs}}
+                {{#x-OSLC-ValueType}}
+                , @Extension(properties = { @ExtensionProperty(name = "OSLC-ValueType", value = "{{this}}") })
+                {{/x-OSLC-ValueType}}
+                {{#x-OSLC-ReadOnly}}
+                , @Extension(properties = { @ExtensionProperty(name = "OSLC-ReadOnly", value = "true", parseValue = true) })
+                {{/x-OSLC-ReadOnly}}
+                {{#x-OSLC-Range.0}}
+                , @Extension(properties = { @ExtensionProperty(name = "OSLC-Range", value = "[{{#x-OSLC-Range}}\"{{this}}\"{{#unless @last}},{{/unless}}{{/x-OSLC-Range}}]", parseValue = true) })
+                {{/x-OSLC-Range.0}}
+                {{#x-OSLC-AllowedValue.0}}
+                , @Extension(properties = { @ExtensionProperty(name = "OSLC-AllowedValue", value = "[{{#x-OSLC-AllowedValue}}\"{{this}}\"{{#unless @last}},{{/unless}}{{/x-OSLC-AllowedValue}}]", parseValue = true) })
+                {{/x-OSLC-AllowedValue.0}}
+                {{#x-OSLC-AllowedValues}}
+                , @Extension(properties = { @ExtensionProperty(name = "OSLC-AllowedValues", value = "{{this}}") })
+                {{/x-OSLC-AllowedValues}}
+                {{#x-OSLC-DefaultValue}}
+                , @Extension(properties = { @ExtensionProperty(name = "OSLC-DefaultValue", value = "{{this}}") })
+                {{/x-OSLC-DefaultValue}}
+                {{#x-OSLC-Hidden}}
+                , @Extension(properties = { @ExtensionProperty(name = "OSLC-Hiden", value = "true", parseValue = true) })
+                {{/x-OSLC-Hidden}}
+                {{#x-OSLC-MaxSize}}
+                , @Extension(properties = { @ExtensionProperty(name = "OSLC-MaxSize", value = "{{this}}", parseValue = true) })
+                {{/x-OSLC-MaxSize}}
+                {{#x-OSLC-MemberProperty}}
+                , @Extension(properties = { @ExtensionProperty(name = "OSLC-MemberProperty", value = "true", parseValue = true) })
+                {{/x-OSLC-MemberProperty}}
+                {{#x-OSLC-ValueShape}}
+                , @Extension(properties = { @ExtensionProperty(name = "OSLC-ValueShape", value = "{{this}}") })
+                {{/x-OSLC-ValueShape}}
+                {{#x-OSLC-Representation}}
+                , @Extension(properties = { @ExtensionProperty(name = "OSLC-Representation", value = "{{this}}") })
+                {{/x-OSLC-Representation}}
+                {{#x-OSLC-RDFCollectionType}}
+                , @Extension(name = "OSLC-RDFCollectionType", properties = { 
+                    {{#this.collectionType}}
+                    @ExtensionProperty(name = "collectionType", value = "{{this}}")
+                    {{/this.collectionType}}
+                    {{#this.namespaceURI}}
+                    , @ExtensionProperty(name = "namespaceURI", value = "{{this}}")
+                    {{/this.namespaceURI}}
+                })
+                {{/x-OSLC-RDFCollectionType}}
+                {{/vendorExtensions}}
+            }
