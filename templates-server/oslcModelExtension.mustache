@@ -10,12 +10,14 @@
                     , @ExtensionProperty(name = "describes", value = "[{{#describes}}\"{{this}}\"{{#unless @last}},{{/unless}}{{/describes}}]", parseValue = true)
                     {{/describes.0}}
                 })
-            {{#vendorExtensions.x-OSLC-Namespace}}
+            {{#vendorExtensions}}
+            {{#x-OSLC-Namespace}}
             , @Extension(properties = { @ExtensionProperty(name = "OSLC-Namespace", value = "{{this}}") })
-            {{/vendorExtensions.x-OSLC-Namespace}}
-            {{#vendorExtensions.x-OSLC-NotQueryResult}}
+            {{/x-OSLC-Namespace}}
+            {{#x-OSLC-NotQueryResult}}
             , @Extension(properties = { @ExtensionProperty(name = "OSLC-NotQueryResult", value = "true", parseValue = true) })
-            {{/vendorExtensions.x-OSLC-NotQueryResult}}
+            {{/x-OSLC-NotQueryResult}}
+            {{/vendorExtensions}}
         }
 )
 {{/vendorExtensions.x-OSLC-ResourceShape}}

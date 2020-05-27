@@ -1,10 +1,10 @@
 ServiceProvider provider = new ServiceProvider();
 String pathBaseName = "{{baseName}}/";
 Publisher publisher = new Publisher();
-{{#publisher.title}}publisher.setTitle("{{publisher.title}}");{{/publisher.title}}
-{{#publisher.identifier}}publisher.setIdentifier("{{publisher.identifier}}");{{/publisher.identifier}}
-{{#publisher.label}}publisher.setLabel("{{publisher.label}}");{{/publisher.label}}
-{{#publisher.icon}}publisher.setIcon(URI.create("{{publisher.icon}}"));{{/publisher.icon}}
+{{#publisher.title}}publisher.setTitle("{{this}}");{{/publisher.title}}
+{{#publisher.identifier}}publisher.setIdentifier("{{this}}");{{/publisher.identifier}}
+{{#publisher.label}}publisher.setLabel("{{this}}");{{/publisher.label}}
+{{#publisher.icon}}publisher.setIcon(URI.create("{{this}}"));{{/publisher.icon}}
 
 Class<?>[] services = new Class[]{
 {{#services}}

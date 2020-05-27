@@ -1,13 +1,15 @@
 {{#vendorExtensions.x-OSLC-ResourceShape}}
 @OslcResourceShape(
-    {{#title}}title = "{{title}}",{{/title}} 
+    {{#title}}title = "{{this}}",{{/title}} 
     describes = {
         {{#describes}}"{{this}}",{{/describes}}
     })
-{{#vendorExtensions.x-OSLC-Namespace}}
+{{#vendorExtensions}}
+{{#x-OSLC-Namespace}}
 @OslcNamespace("{{this}}")
-{{/vendorExtensions.x-OSLC-Namespace}}
-{{#vendorExtensions.x-OSLC-NotQueryResult}}
+{{/x-OSLC-Namespace}}
+{{#x-OSLC-NotQueryResult}}
 @OslcNotQueryResult(true)
-{{/vendorExtensions.x-OSLC-NotQueryResult}}
+{{/x-OSLC-NotQueryResult}}
+{{/vendorExtensions}}
 {{/vendorExtensions.x-OSLC-ResourceShape}}
