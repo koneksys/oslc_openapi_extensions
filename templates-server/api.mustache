@@ -106,9 +106,7 @@ public class {{classname}}  {
         }{{/isOAuth}}){{#hasMore}},
         {{/hasMore}}{{/authMethods}}
     }{{/hasAuthMethods}}, tags={ {{#vendorExtensions.x-tags}}"{{tag}}"{{#hasMore}}, {{/hasMore}}{{/vendorExtensions.x-tags}} }
-    {{#vendorExtensions.x-OSLC-ResourceShapeEndpoint}}
-    , extensions = @Extension(properties = @ExtensionProperty(name = "OSLC-ResourceShapeEndpoint", value = "true", parseValue = true))
-    {{/vendorExtensions.x-OSLC-ResourceShapeEndpoint}}
+    {{>oslcApiOperationExtension}}
     )
     @ApiResponses(value = { {{#responses}}
         @ApiResponse(responseCode = "{{{code}}}", description = "{{{message}}}"{{^vendorExtensions.x-java-is-response-void}}, content = @Content({{^containerType}}schema = @Schema(implementation = {{{baseType}}}.class)){{/containerType}}{{#containerType}}array = @ArraySchema(schema = @Schema(implementation = {{{baseType}}}.class))){{/containerType}}{{/vendorExtensions.x-java-is-response-void}}){{#hasMore}},
