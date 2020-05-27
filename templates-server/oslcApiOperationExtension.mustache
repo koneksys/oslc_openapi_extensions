@@ -1,5 +1,8 @@
     {{#vendorExtensions}}    
     , extensions = {
+        {{#x-OSLC-Service}}
+        @Extension(properties = @ExtensionProperty(name = "OSLC-Service", value = "{{this}}")),
+        {{/x-OSLC-Service}}
         {{#x-OSLC-ResourceShapeEndpoint}}
         @Extension(properties = @ExtensionProperty(name = "OSLC-ResourceShapeEndpoint", value = "true", parseValue = true)),
         {{/x-OSLC-ResourceShapeEndpoint}}
@@ -21,9 +24,6 @@
             @ExtensionProperty(name = "usages", value = "[{{#usages}}\"{{this}}\"{{#unless @last}},{{/unless}}{{/usages}} ]", parseValue = true),
             {{/usages.0}}
         }),
-        {{#x-OSLC-Service}}
-        @Extension(properties = @ExtensionProperty(name = "OSLC-Service", value = "{{this}}")),
-        {{/x-OSLC-Service}}
         {{/x-OSLC-CreationFactory}}
         {{#x-OSLC-QueryCapability}}
         @Extension(name = "OSLC-QueryCapability", properties = {
@@ -43,9 +43,6 @@
             @ExtensionProperty(name = "usages", value = "[{{#usages}}\"{{this}}\"{{#unless @last}},{{/unless}}{{/usages}} ]", parseValue = true),
             {{/usages.0}}
         }),
-        {{#x-OSLC-Service}}
-        @Extension(properties = @ExtensionProperty(name = "OSLC-Service", value = "{{this}}")),
-        {{/x-OSLC-Service}}
         {{/x-OSLC-QueryCapability}}
         {{#x-OSLC-ServiceProvider}}
         @Extension(name = "OSLC-ServiceProvider", properties = {
