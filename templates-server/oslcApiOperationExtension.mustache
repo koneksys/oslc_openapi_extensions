@@ -50,11 +50,42 @@
             @ExtensionProperty(name = "description", value = "{{this}}"),
             {{/description}}
             {{#services.0}}
-            @ExtensionProperty(name = "services", value = "[{{#services}}\"{{this}}\"{{/services}}]", parseValue = true),
+            @ExtensionProperty(name = "services", value = "[{{#services}}\"{{this}}\"{{#unless @last}},{{/unless}}{{/services}}]", parseValue = true),
             {{/services.0}}
             {{#details.0}}
             @ExtensionProperty(name = "details", value = "[{{#details}}\"{{this}}\"{{#unless @last}},{{/unless}}{{/details}} ]", parseValue = true),
             {{/details.0}}
+            {{#publisher}}
+            @ExtensionProperty(name = "publisher", value = "{" +
+                {{#icon}}
+                "\"icon\": \"{{this}}\","+
+                {{/icon}}
+                {{#identifier}}
+                "\"identifier\": \"{{this}}\","+
+                {{/identifier}}
+                {{#label}}
+                "\"label\": \"{{this}}\","+
+                {{/label}}
+                {{#title}}
+                "\"title\": \"{{this}}\""+
+                {{/title}}
+                {{^title}}
+                "\"title\": \"\""+
+                {{/title}}
+                "}"
+                , parseValue = true),
+            {{/publisher}}
+            {{#prefixDefinitions.0}}
+            @ExtensionProperty(name = "prefixDefinitions", value = "[" +
+                {{#prefixDefinitions}}
+                "{"+
+                    "\"prefix\": \"{{this.prefix}}\","+
+                    "\"prefixBase\": \"{{this.prefixBase}}\""+
+                "}"+
+                {{#unless @last}}","+{{/unless}}
+                {{/prefixDefinitions}}
+                "]", parseValue = true)
+            {{/prefixDefinitions.0}}
         })
         {{/x-OSLC-ServiceProvider}}
     }
