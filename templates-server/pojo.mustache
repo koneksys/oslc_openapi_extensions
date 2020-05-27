@@ -3,6 +3,7 @@
  */{{#description}}
 {{#useOas2}}@ApiModel{{/useOas2}}{{^useOas2}}@Schema{{/useOas2}}(description = "{{{description}}}"){{/description}}
 {{>oslcModelResourceShapeAnnotation}}
+{{>oslcModelExtension}}
 {{>generatedAnnotation}}
 public class {{classname}} {{#parent}}extends {{{parent}}}{{/parent}} {{#serializableModel}}implements Serializable {{#interfaceModels}}, {{classname}}{{^@last}}, {{/@last}}{{#@last}} {{/@last}}{{/interfaceModels}}{{/serializableModel}}{{^serializableModel}}{{#interfaceModels}}{{#@first}}implements {{/@first}}{{classname}}{{^@last}}, {{/@last}}{{#@last}} {{/@last}}{{/interfaceModels}}{{/serializableModel}}{{#vendorExtensions.x-OSLC-ResourceShape}}extends AbstractResource{{/vendorExtensions.x-OSLC-ResourceShape}} {
   {{#vars}}
@@ -83,7 +84,15 @@ public class {{classname}} {{#parent}}extends {{{parent}}}{{/parent}} {{#seriali
   @ApiModelProperty({{#example}}example = "{{{example}}}", {{/example}}{{#required}}required = {{required}}, {{/required}}value = "{{{description}}}")
   {{/useOas2}}
   {{^useOas2}}
-  @Schema({{#example}}example = "{{{example}}}", {{/example}}{{#required}}required = {{required}}, {{/required}}description = "{{{description}}}")
+  @Schema({{#example}}example = "{{{example}}}", {{/example}}{{#required}}required = {{required}}, {{/required}}description = "{{{description}}}"
+  ,extensions = {
+                    @Extension(name = "x-userStatus", properties = {
+                            @ExtensionProperty(name = "name", value = "Josh")}),
+                    @Extension(name = "userStatus-extensions", properties = {
+                            @ExtensionProperty(name = "lastName", value = "Hart"),
+                            @ExtensionProperty(name = "address", value = "House")})
+            }
+  )
   {{/useOas2}}
 {{#useBeanValidation}}{{>beanValidation}}{{/useBeanValidation}}  public {{>oslcLinkedResourceType}} {{getter}}() {
     return {{name}};

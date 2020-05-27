@@ -1,0 +1,15 @@
+{{#vendorExtensions.x-OSLC-ResourceShape}}
+@Schema(
+        extensions = {
+          @Extension(name = "OSLC-ResourceShape", 
+                properties = {
+                    {{#title}}
+                    @ExtensionProperty(name = "title", value = "{{this}}")
+                    {{/title}}
+                    {{#describes.0}}
+                    , @ExtensionProperty(name = "describes", value = "[{{#describes}}\"{{this}}\"{{#unless @last}},{{/unless}}{{/describes}}]", parseValue = true)
+                    {{/describes.0}}
+                })
+        }
+)
+{{/vendorExtensions.x-OSLC-ResourceShape}}
