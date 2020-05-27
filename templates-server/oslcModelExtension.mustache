@@ -4,18 +4,18 @@
             @Extension(name = "OSLC-ResourceShape", 
                 properties = {
                     {{#title}}
-                    @ExtensionProperty(name = "title", value = "{{this}}")
+                    @ExtensionProperty(name = "title", value = "{{this}}"),
                     {{/title}}
                     {{#describes.0}}
-                    , @ExtensionProperty(name = "describes", value = "[{{#describes}}\"{{this}}\"{{#unless @last}},{{/unless}}{{/describes}}]", parseValue = true)
+                    @ExtensionProperty(name = "describes", value = "[{{#describes}}\"{{this}}\"{{#unless @last}},{{/unless}}{{/describes}}]", parseValue = true)
                     {{/describes.0}}
-                })
+                }),
             {{#vendorExtensions}}
             {{#x-OSLC-Namespace}}
-            , @Extension(properties = { @ExtensionProperty(name = "OSLC-Namespace", value = "{{this}}") })
+            @Extension(properties = { @ExtensionProperty(name = "OSLC-Namespace", value = "{{this}}") }),
             {{/x-OSLC-Namespace}}
             {{#x-OSLC-NotQueryResult}}
-            , @Extension(properties = { @ExtensionProperty(name = "OSLC-NotQueryResult", value = "true", parseValue = true) })
+            @Extension(properties = { @ExtensionProperty(name = "OSLC-NotQueryResult", value = "true", parseValue = true) })
             {{/x-OSLC-NotQueryResult}}
             {{/vendorExtensions}}
         }
