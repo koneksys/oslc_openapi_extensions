@@ -8,6 +8,7 @@ tags:
 - name: OSLC Service for {TestScript}
 - name: OSLC Infrastructure
 paths:
+
   /resourceShapes/{resourceType}:
     get:
       tags:
@@ -38,6 +39,34 @@ paths:
               schema:
                 type: string
       x-OSLC-ResourceShapeEndpoint: true
+  /provider/catalog:
+    get:
+      tags:
+      - OSLC Infrastructure
+      responses:
+        200:
+          description: successful operation
+          content:
+            application/xml:
+              schema:
+                type: string
+            application/json:
+              schema:
+                type: string
+            text/turtle:
+              schema:
+                type: string
+            text/html:
+              schema:
+                type: string
+      x-OSLC-ServiceProviderCatalog: 
+        providers:
+          - title: Service provider for test scripts
+            description: Service provider for test scripts description
+            about: '/provider/testScripts'
+          - title: Service provider for test plans
+            description: Service provider for test plans description
+            about: '/provider/testPlans'
   /provider/{serviceProviderId}:
     get:
       tags:

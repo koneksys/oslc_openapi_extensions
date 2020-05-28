@@ -42,8 +42,13 @@ public class {{classname}}ServiceImpl extends {{classname}}Service {
         {{>oslcServiceProviderApiImpl}}
             {{/vendorExtensions.x-OSLC-ServiceProvider}}
             {{^vendorExtensions.x-OSLC-ServiceProvider}}
+                {{#vendorExtensions.x-OSLC-ServiceProviderCatalog}}
+        {{>oslcServiceProviderCatalogApiImpl}}
+                {{/vendorExtensions.x-OSLC-ServiceProviderCatalog}}
+                {{^vendorExtensions.x-OSLC-ServiceProviderCatalog}}
         // do some magic!
         return Response.ok().entity(new ApiResponseMessage(ApiResponseMessage.OK, "magic!")).build();
+                {{/vendorExtensions.x-OSLC-ServiceProviderCatalog}}
             {{/vendorExtensions.x-OSLC-ServiceProvider}}
 
 
