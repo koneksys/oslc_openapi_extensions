@@ -121,6 +121,7 @@ paths:
         publisher:
           title: Service provider for Test Scripts
           identifier: urn:oslc:sample
+        identifier: urn:oslc:sample:serviceProvider
   /serviceProviders/{serviceProviderId}/testScripts/query:
     get:
       tags:

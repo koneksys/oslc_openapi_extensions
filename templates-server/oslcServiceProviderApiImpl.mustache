@@ -35,6 +35,9 @@ try {
     provider.setPrefixDefinitions(new PrefixDefinition[]{
         {{#prefixDefinitions}}new PrefixDefinition("{{this.prefix}}", URI.create("{{this.prefixBase}}")),{{/prefixDefinitions}}
     });
+    {{#identifier}}
+    provider.setIdentifier("{{this}}");
+    {{/identifier}}
 } catch (URISyntaxException e) {
     e.printStackTrace();
 } catch (OslcCoreApplicationException e) {
