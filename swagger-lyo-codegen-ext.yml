@@ -59,7 +59,11 @@ paths:
             text/html:
               schema:
                 type: string
-      x-OSLC-ServiceProviderCatalog: 
+      x-OSLC-ServiceProviderCatalog:
+        description: Service Provider Catalog for tests description
+        domains:
+          - http://open-services.net/ns/qm#
+        title: Service Provider Catalog for Tests
         providers:
           - title: Service provider for test scripts
             description: Service provider for test scripts description

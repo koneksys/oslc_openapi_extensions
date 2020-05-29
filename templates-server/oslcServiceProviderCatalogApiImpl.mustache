@@ -1,4 +1,17 @@
 ServiceProviderCatalog providerCatalog = new ServiceProviderCatalog();
+providerCatalog.setAbout(URI.create("{{basePath}}/{{baseName}}{{path}}"));
+{{#title}}
+providerCatalog.setTitle("{{this}}");
+{{/title}}
+{{#description}}
+providerCatalog.setDescription("{{this}}");
+{{/description}}
+{{#domains.0}}
+{{#domains}}
+providerCatalog.addDomain(URI.create("{{this}}"));
+{{/domains}}
+{{/domains.0}}
+
 {{#providers.0}}
 ServiceProvider provider = new ServiceProvider();
 //Adding defined service providers
@@ -10,4 +23,5 @@ providerCatalog.addServiceProvider(provider);
 provider = new ServiceProvider();
     {{/providers}}
 {{/providers.0}}
+
 return Response.ok().entity(providerCatalog).build();

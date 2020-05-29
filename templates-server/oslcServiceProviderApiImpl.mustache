@@ -31,7 +31,7 @@ try {
         {{/parameters}}
         {{^parameters}}
     );
-    provider.setAbout(URI.create("{{basePath}}/" + {{baseName}}));
+    provider.setAbout(URI.create("{{basePath}}/{{baseName}}{{path}}"));
         {{/parameters}}
     provider.setDetails(new URI[]{
         {{#details}}URI.create("{{this}}"),{{/details}}
