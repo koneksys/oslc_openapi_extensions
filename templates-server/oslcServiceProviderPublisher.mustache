@@ -1,0 +1,5 @@
+Publisher publisher = new Publisher();
+{{#publisher.title}}publisher.setTitle("{{this}}");{{/publisher.title}}
+{{#publisher.identifier}}publisher.setIdentifier("{{this}}");{{/publisher.identifier}}
+{{#publisher.label}}publisher.setLabel("{{this}}");{{/publisher.label}}
+{{#publisher.icon}}publisher.setIcon(URI.create("{{this}}"));{{/publisher.icon}}

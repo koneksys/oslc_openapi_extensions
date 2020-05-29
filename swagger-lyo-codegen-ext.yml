@@ -71,6 +71,9 @@ paths:
           - title: Service provider for test plans
             description: Service provider for test plans description
             about: '/provider/testPlans'
+        publisher:
+          title: Service provider catalog for Tests
+          identifier: urn:oslc:sample
   /provider/{serviceProviderId}:
     get:
       tags:

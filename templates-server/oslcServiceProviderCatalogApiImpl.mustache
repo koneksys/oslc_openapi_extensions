@@ -12,6 +12,11 @@ providerCatalog.addDomain(URI.create("{{this}}"));
 {{/domains}}
 {{/domains.0}}
 
+{{#publisher}}
+{{>oslcServiceProviderPublisher}}
+providerCatalog.setPublisher(publisher);
+{{/publisher}}
+
 {{#providers.0}}
 ServiceProvider provider = new ServiceProvider();
 //Adding defined service providers
