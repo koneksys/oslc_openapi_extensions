@@ -58,26 +58,7 @@
             {{#details.0}}
             @ExtensionProperty(name = "details", value = "[{{#details}}\"{{this}}\"{{#unless @last}},{{/unless}}{{/details}} ]", parseValue = true),
             {{/details.0}}
-            {{#publisher}}
-            @ExtensionProperty(name = "publisher", value = "{" +
-                {{#icon}}
-                "\"icon\": \"{{this}}\","+
-                {{/icon}}
-                {{#identifier}}
-                "\"identifier\": \"{{this}}\","+
-                {{/identifier}}
-                {{#label}}
-                "\"label\": \"{{this}}\","+
-                {{/label}}
-                {{#title}}
-                "\"title\": \"{{this}}\""+
-                {{/title}}
-                {{^title}}
-                "\"title\": \"\""+
-                {{/title}}
-                "}"
-                , parseValue = true),
-            {{/publisher}}
+            {{>oslcServiceProviderPublisherExtension}}
             {{#prefixDefinitions.0}}
             @ExtensionProperty(name = "prefixDefinitions", value = "[" +
                 {{#prefixDefinitions}}
@@ -91,5 +72,34 @@
             {{/prefixDefinitions.0}}
         })
         {{/x-OSLC-ServiceProvider}}
+        {{#x-OSLC-ServiceProviderCatalog}}
+        @Extension(name = "OSLC-ServiceProviderCatalog", properties = {
+            {{#title}}
+            @ExtensionProperty(name = "title", value = "{{this}}"),
+            {{/title}}
+            {{#description}}
+            @ExtensionProperty(name = "description", value = "{{this}}"),
+            {{/description}}
+            {{#domains.0}}
+            @ExtensionProperty(name = "domains", value = "[{{#domains}}\"{{this}}\"{{#unless @last}},{{/unless}}{{/domains}} ]", parseValue = true),
+            {{/domains.0}}
+            {{#referencedServiceProviderCatalogs.0}}
+            @ExtensionProperty(name = "referencedServiceProviderCatalogs", value = "[{{#referencedServiceProviderCatalogs}}\"{{this}}\"{{#unless @last}},{{/unless}}{{/referencedServiceProviderCatalogs}} ]", parseValue = true),
+            {{/referencedServiceProviderCatalogs.0}}
+            {{>oslcServiceProviderPublisherExtension}}
+            {{#serviceProviders.0}}
+            @ExtensionProperty(name = "prefixDefinitions", value = "[" +
+                {{#serviceProviders}}
+                "{"+
+                    "\"title\": \"{{this.title}}\","+
+                    "\"description\": \"{{this.description}}\","+
+                    "\"about\": \"{{this.about}}\""+
+                "}"+
+                {{#unless @last}}","+{{/unless}}
+                {{/serviceProviders}}
+                "]", parseValue = true)
+            {{/serviceProviders.0}}
+        })
+        {{/x-OSLC-ServiceProviderCatalog}}
     }
     {{/vendorExtensions}}

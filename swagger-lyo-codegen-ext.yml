@@ -64,7 +64,7 @@ paths:
         domains:
           - http://open-services.net/ns/qm#
         title: Service Provider Catalog for Tests
-        providers:
+        serviceProviders:
           - title: Service provider for test scripts
             description: Service provider for test scripts description
             about: '/provider/testScripts'

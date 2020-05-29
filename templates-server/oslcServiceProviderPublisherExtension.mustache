@@ -1,0 +1,23 @@
+{{#publisher}}
+@ExtensionProperty(name = "publisher", value = "{" +
+    {{#icon}}
+    "\"icon\": \"{{this}}\","+
+    {{/icon}}
+    {{#identifier}}
+    "\"identifier\": \"{{this}}\","+
+    {{/identifier}}
+    {{#label}}
+    "\"label\": \"{{this}}\","+
+    {{/label}}
+    {{#identifier}}
+    "\"identifier\": \"{{this}}\","+
+    {{/identifier}}
+    {{#title}}
+    "\"title\": \"{{this}}\""+
+    {{/title}}
+    {{^title}}
+    "\"title\": \"\""+
+    {{/title}}
+    "}"
+    , parseValue = true),
+{{/publisher}}

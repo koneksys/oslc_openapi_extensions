@@ -17,17 +17,17 @@ providerCatalog.addDomain(URI.create("{{this}}"));
 providerCatalog.setPublisher(publisher);
 {{/publisher}}
 
-{{#providers.0}}
+{{#serviceProviders.0}}
 ServiceProvider provider = new ServiceProvider();
 //Adding defined service providers
-    {{#providers}}
+    {{#serviceProviders}}
 provider.setAbout(URI.create("{{basePath}}{{about}}"));
 provider.setTitle("{{title}}");
 provider.setDescription("{{description}}");
 providerCatalog.addServiceProvider(provider);
 provider = new ServiceProvider();
-    {{/providers}}
-{{/providers.0}}
+    {{/serviceProviders}}
+{{/serviceProviders.0}}
 
 {{#referencedServiceProviderCatalogs.0}}
 URI[] referencedServiceProviderCatalogsUris = new URI[]{
