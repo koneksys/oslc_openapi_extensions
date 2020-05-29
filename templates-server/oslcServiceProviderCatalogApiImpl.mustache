@@ -7,9 +7,9 @@ providerCatalog.setTitle("{{this}}");
 providerCatalog.setDescription("{{this}}");
 {{/description}}
 {{#domains.0}}
-{{#domains}}
+    {{#domains}}
 providerCatalog.addDomain(URI.create("{{this}}"));
-{{/domains}}
+    {{/domains}}
 {{/domains.0}}
 
 {{#publisher}}
@@ -28,5 +28,15 @@ providerCatalog.addServiceProvider(provider);
 provider = new ServiceProvider();
     {{/providers}}
 {{/providers.0}}
+
+{{#referencedServiceProviderCatalogs.0}}
+URI[] referencedServiceProviderCatalogsUris = new URI[]{
+    {{#referencedServiceProviderCatalogs}}
+    URI.create("{{this}}"),
+    {{/referencedServiceProviderCatalogs}}
+};
+providerCatalog.setReferencedServiceProviderCatalogs(referencedServiceProviderCatalogsUris);
+{{/referencedServiceProviderCatalogs.0}}
+
 
 return Response.ok().entity(providerCatalog).build();

@@ -74,6 +74,8 @@ paths:
         publisher:
           title: Service provider catalog for Tests
           identifier: urn:oslc:sample
+        referencedServiceProviderCatalogs:
+          - http://localhost:8082/other/serviceProviderCatalog
   /provider/{serviceProviderId}:
     get:
       tags:
