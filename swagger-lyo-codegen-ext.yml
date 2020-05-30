@@ -183,6 +183,11 @@ paths:
         resourceShape: resourceShapes/testScript
         resourceTypes: 
           - http://open-services.net/ns/qm#TestScript
+      x-OSLC-Dialog:
+        title: "Message Creation Dialog"
+        uri: "modules/message/add.html"
+        resourceTypes:
+            - "http://example.com/Message"
   /serviceProviders/{serviceProviderId}/testScripts/{testScriptId}:
     get:
       tags:

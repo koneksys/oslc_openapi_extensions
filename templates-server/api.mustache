@@ -81,8 +81,7 @@ public class {{classname}}  {
 {{#operation}}
 {{#contents}}
     @{{httpMethod}}
-    {{>oslcCreationFactoryApiAnnotation}}
-    {{>oslcQueryCapabilityApiAnnotation}}
+    {{>oslcApiAnnotation}}
     {{#subresourceOperation}}@Path("{{{path}}}"){{/subresourceOperation}}
     {{#hasConsumes}}@Consumes({ {{#consumes}}"{{{mediaType}}}"{{#hasMore}}, {{/hasMore}}{{/consumes}} }){{/hasConsumes}}
     {{#hasProduces}}@Produces({ {{#produces}}"{{{mediaType}}}"{{#hasMore}}, {{/hasMore}}{{/produces}} }){{/hasProduces}}
