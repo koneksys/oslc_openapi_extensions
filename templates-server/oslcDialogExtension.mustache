@@ -1,0 +1,13 @@
+"{"+
+    "\"title\": \"{{this.title}}\","+
+    {{#label}}",\"label\": \"{{this}}\""+{{/label}}
+    "\"uri\": \"{{this.uri}}\""+
+    {{#hintWidth}}"\"hintWidth\": \"{{this}}\","+{{/hintWidth}}
+    {{#hintHeight}}"\"hintHeight\": \"{{this}}\","+{{/hintHeight}}
+    {{#resourceTypes.0}}
+    ",\"resourceTypes\": [{{#resourceTypes}}\"{{this}}\"{{#unless @last}},{{/unless}}{{/resourceTypes}}]"+
+    {{/resourceTypes.0}}
+    {{#usages.0}}
+    ",\"usages\": [{{#usages}}\"{{this}}\"{{#unless @last}},{{/unless}}{{/usages}}]"+
+    {{/usages.0}}
+"}"

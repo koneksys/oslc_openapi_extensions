@@ -18,12 +18,12 @@
     )
 {{/x-OSLC-QueryCapability}}
 {{#x-OSLC-Dialog}}
-{{>oslcDialog}}
+{{>oslcDialogAnnotation}}
 {{/x-OSLC-Dialog}}
 {{#x-OSLC-Dialogs.0}}
 @OslcDialogs({
     {{#x-OSLC-Dialogs}}
-    {{>oslcDialog}}
+    {{>oslcDialogAnnotation}}
     {{#unless @last}},{{/unless}}
     {{/x-OSLC-Dialogs}}
 })
