@@ -1,7 +1,7 @@
 {{#vendorExtensions}}
 {{#x-OSLC-CreationFactory}}
 @OslcCreationFactory(
-    {{#title}}title = "{{this}}", {{/title}}
+    title = "{{title}}", 
     {{#label}}label = "{{this}}",{{/label}}
     resourceShapes = { {{#resourceShapes}}"{{this}}"{{#unless @last}},{{/unless}} {{/resourceShapes}} },
     resourceTypes = { {{#resourceTypes}}"{{this}}"{{#unless @last}},{{/unless}} {{/resourceTypes}} },
@@ -10,7 +10,7 @@
 {{/x-OSLC-CreationFactory}}
 {{#x-OSLC-QueryCapability}}
 @OslcQueryCapability(
-    {{#title}}title = "{{this}}",{{/title}}
+    title = "{{title}}",
     {{#label}}label = "{{this}}",{{/label}}
     {{#resourceShape}}resourceShape = "{{this}}",{{/resourceShape}}
     resourceTypes = { {{#resourceTypes}}"{{this}}"{{#unless @last}},{{/unless}}{{/resourceTypes}} },
