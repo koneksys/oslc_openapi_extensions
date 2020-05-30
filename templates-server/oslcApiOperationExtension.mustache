@@ -44,6 +44,31 @@
             {{/usages.0}}
         }),
         {{/x-OSLC-QueryCapability}}
+        {{#x-OSLC-Dialog}}
+        @Extension(name = "OSLC-Dialog", properties = {
+            {{#title}}
+            @ExtensionProperty(name = "title", value = "{{this}}"),
+            {{/title}}
+            {{#label}}
+            @ExtensionProperty(name = "label", value = "{{this}}"),
+            {{/label}}
+            {{#uri}}
+            @ExtensionProperty(name = "uri", value = "{{this}}"),
+            {{/uri}}
+            {{#hintWidth}}
+            @ExtensionProperty(name = "hintWidth", value = "{{this}}"),
+            {{/hintWidth}}
+            {{#hintHeight}}
+            @ExtensionProperty(name = "hintHeight", value = "{{this}}"),
+            {{/hintHeight}}
+            {{#resourceTypes.0}}
+            @ExtensionProperty(name = "resourceTypes", value = "[{{#resourceTypes}}\"{{this}}\"{{#unless @last}},{{/unless}}{{/resourceTypes}} ]", parseValue = true),
+            {{/resourceTypes.0}}
+            {{#usages.0}}
+            @ExtensionProperty(name = "usages", value = "[{{#usages}}\"{{this}}\"{{#unless @last}},{{/unless}}{{/usages}} ]", parseValue = true),
+            {{/usages.0}}
+        }),
+        {{/x-OSLC-Dialog}}
         {{#x-OSLC-ServiceProvider}}
         @Extension(name = "OSLC-ServiceProvider", properties = {
             {{#title}}

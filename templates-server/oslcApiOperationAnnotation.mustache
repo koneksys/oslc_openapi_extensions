@@ -1,4 +1,5 @@
-{{#vendorExtensions.x-OSLC-CreationFactory}}
+{{#vendorExtensions}}
+{{#x-OSLC-CreationFactory}}
 @OslcCreationFactory(
     {{#title}}title = "{{this}}", {{/title}}
     {{#label}}label = "{{this}}",{{/label}}
@@ -6,8 +7,8 @@
     resourceTypes = { {{#resourceTypes}}"{{this}}"{{#unless @last}},{{/unless}} {{/resourceTypes}} },
     usages = { {{#usages}}"{{this}}"{{#unless @last}},{{/unless}}{{/usages}} }
     )
-{{/vendorExtensions.x-OSLC-CreationFactory}}
-{{#vendorExtensions.x-OSLC-QueryCapability}}
+{{/x-OSLC-CreationFactory}}
+{{#x-OSLC-QueryCapability}}
 @OslcQueryCapability(
     {{#title}}title = "{{this}}",{{/title}}
     {{#label}}label = "{{this}}",{{/label}}
@@ -15,8 +16,8 @@
     resourceTypes = { {{#resourceTypes}}"{{this}}"{{#unless @last}},{{/unless}}{{/resourceTypes}} },
     usages = { {{#usages}}"{{this}}"{{#unless @last}},{{/unless}}{{/usages}} }
     )
-{{/vendorExtensions.x-OSLC-QueryCapability}}
-{{#vendorExtensions.x-OSLC-Dialog}}
+{{/x-OSLC-QueryCapability}}
+{{#x-OSLC-Dialog}}
 @OslcDialog(
     title = "{{title}}",
     {{#label}}label = "{{this}}",{{/label}}
@@ -26,4 +27,5 @@
     resourceTypes = { {{#resourceTypes}}"{{this}}"{{#unless @last}},{{/unless}}{{/resourceTypes}} },
     usages = { {{#usages}}"{{this}}"{{#unless @last}},{{/unless}}{{/usages}} }
 )
-{{/vendorExtensions.x-OSLC-Dialog}}
+{{/x-OSLC-Dialog}}
+{{/vendorExtensions}}
