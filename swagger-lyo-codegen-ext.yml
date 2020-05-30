@@ -183,10 +183,14 @@ paths:
         resourceShape: resourceShapes/testScript
         resourceTypes: 
           - http://open-services.net/ns/qm#TestScript
-      x-OSLC-Dialog:
-        title: "Message Creation Dialog"
-        uri: "modules/message/add.html"
-        resourceTypes:
+      x-OSLC-Dialogs:
+        - title: "Message Creation Dialog"
+          uri: "modules/message/add.html"
+          resourceTypes:
+            - "http://example.com/Message"
+        - title: "Message Selection Dialog"
+          uri: "modules/message/search.html"
+          resourceTypes:
             - "http://example.com/Message"
   /serviceProviders/{serviceProviderId}/testScripts/{testScriptId}:
     get:
@@ -313,6 +317,11 @@ paths:
           - resourceShapes/testPlan
         resourceTypes: 
           - http://open-services.net/ns/qm#TestScript
+      x-OSLC-Dialog:
+        title: "Message Creation Dialog"
+        uri: "modules/message/add.html"
+        resourceTypes:
+            - "http://example.com/Message"
 components:
   schemas:
     Compact:

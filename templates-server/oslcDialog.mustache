@@ -1,0 +1,9 @@
+@OslcDialog(
+    title = "{{title}}",
+    {{#label}}label = "{{this}}",{{/label}}
+    uri = "{{uri}}",
+    {{#hintWidth}}hintWidth = "{{this}}",{{/hintWidth}}
+    {{#hintHeight}}hintHeight = "{{this}}",{{/hintHeight}}
+    resourceTypes = { {{#resourceTypes}}"{{this}}"{{#unless @last}},{{/unless}}{{/resourceTypes}} },
+    usages = { {{#usages}}"{{this}}"{{#unless @last}},{{/unless}}{{/usages}} }
+)

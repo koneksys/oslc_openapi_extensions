@@ -18,14 +18,14 @@
     )
 {{/x-OSLC-QueryCapability}}
 {{#x-OSLC-Dialog}}
-@OslcDialog(
-    title = "{{title}}",
-    {{#label}}label = "{{this}}",{{/label}}
-    uri = "{{uri}}",
-    {{#hintWidth}}hintWidth = "{{this}}",{{/hintWidth}}
-    {{#hintHeight}}hintHeight = "{{this}}",{{/hintHeight}}
-    resourceTypes = { {{#resourceTypes}}"{{this}}"{{#unless @last}},{{/unless}}{{/resourceTypes}} },
-    usages = { {{#usages}}"{{this}}"{{#unless @last}},{{/unless}}{{/usages}} }
-)
+{{>oslcDialog}}
 {{/x-OSLC-Dialog}}
+{{#x-OSLC-Dialogs.0}}
+@OslcDialogs({
+    {{#x-OSLC-Dialogs}}
+    {{>oslcDialog}}
+    {{#unless @last}},{{/unless}}
+    {{/x-OSLC-Dialogs}}
+})
+{{/x-OSLC-Dialogs.0}}
 {{/vendorExtensions}}
