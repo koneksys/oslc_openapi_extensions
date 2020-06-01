@@ -411,6 +411,7 @@ components:
           x-OSLC-PropertyDefinition: http://open-services.net/ns/qm#validatesRequirement
           x-OSLC-Range:
           - http://open-services.net/ns/rm#Requirement
+          - http://open-services.net/ns/rm#RequirementCollection
           x-OSLC-ReadOnly: false
         description:
           type: string
