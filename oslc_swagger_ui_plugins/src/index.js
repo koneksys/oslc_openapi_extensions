@@ -1,8 +1,8 @@
-import React from 'react';
 
 export const OSLCResourceShapePlugin = {
   wrapComponents: {
     Model: (OriginalComponent, system) => (props) => {
+      const React = system.React;
       let expanded = true;
       const toggleCollapsed = ()=>{
         if(props.onToggle){
@@ -63,13 +63,28 @@ export const OSLCResourceShapePlugin = {
   }
 }
 
-export const myPlugin = {
-  components: {
-    TryItOutButton: () => {
-      // NOTE: We're not handling the click event for brevity.
+export const OSLCEndpointPlugin = {
+  wrapComponents: {
+    OperationContainer: (OriginalComponent, system) => (props) => {
+      console.log(props);
+      const React = system.React;
       return (
-        <div className="try-out">
-          <button className="btn try-out__btn">Just do it!</button>
+        <div>
+          {
+            props.op.getIn(["operation","x-OSLC-ServiceProviderCatalog"]) &&
+            <div>Service Provider Catalog</div>
+          }
+          {
+            props.op.getIn(["operation","x-OSLC-CreationFactory"]) &&
+            <div>Creation Factory</div>
+          }
+          {
+            props.op.getIn(["operation","x-OSLC-QueryCapability"]) &&
+            <div>Query Capability</div>
+          }
+        <OriginalComponent {...props}>
+          {props.children}
+        </OriginalComponent>
         </div>
       )
     }
