@@ -65,26 +65,26 @@ export const OSLCResourceShapePlugin = {
 
 export const OSLCEndpointPlugin = {
   wrapComponents: {
-    OperationContainer: (OriginalComponent, system) => (props) => {
-      console.log(props);
+    operation: (OriginalComponent, system) => (props) => {
+      let operationId = props.operation.get("operationId");
+      let operations = system.specSelectors.operations();
+      let operation = operations.filter(op => op.get("operation").get("operationId") === operationId).first();
       const React = system.React;
       return (
         <div>
           {
-            props.op.getIn(["operation","x-OSLC-ServiceProviderCatalog"]) &&
+            operation.get("operation").get("x-OSLC-ServiceProviderCatalog")&&
             <div>Service Provider Catalog</div>
           }
           {
-            props.op.getIn(["operation","x-OSLC-CreationFactory"]) &&
+            operation.get("operation").get("x-OSLC-CreationFactory") &&
             <div>Creation Factory</div>
           }
           {
-            props.op.getIn(["operation","x-OSLC-QueryCapability"]) &&
+            operation.get("operation").get("x-OSLC-QueryCapability") &&
             <div>Query Capability</div>
           }
-        <OriginalComponent {...props}>
-          {props.children}
-        </OriginalComponent>
+        <OriginalComponent {...props} />
         </div>
       )
     }
