@@ -90,3 +90,20 @@ export const OSLCEndpointPlugin = {
     }
   }
 }
+
+export const RDFExamplePlugin = {
+  wrapComponents: {
+    RequestBody: (OriginalComponent, system) => (props) => {
+      const React = system.React;
+     
+      return (
+        <div>
+          <div>Open</div>
+          <OriginalComponent {...props} />
+          <div>Close</div>
+
+        </div>
+      )
+    }
+  }
+}
